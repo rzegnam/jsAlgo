@@ -15,12 +15,55 @@
 //       '#####'
 
 function pyramid(n) {
-    for (let i = 0; i < n; i++) {
-        const spaces = ' '.repeat((n - 1 - i))
-        const hashes = '#'.repeat(2 * i + 1)
-        console.log(spaces + hashes + spaces)
+    // find a relation between rows and columns numbers --> (2 * n - 1) it is
+    const midpoint = Math.floor((2 * n - 1) / 2)
+
+    for (let row = 0; row < n; row++) {
+        let level = ''
+
+        for (let column = 0; column < 2 * n - 1; column++) {
+            if (midpoint - row <= column && midpoint + row >= column) {
+                level += '#'
+            } else {
+                level += ' '
+            }
+        }
+
+        console.log(level)
     }
 
 }
 
 module.exports = pyramid;
+
+// my solution
+// function pyramid(n) {
+//     for (let i = 0; i < n; i++) {
+//         const spaces = ' '.repeat((n - 1 - i))
+//         const hashes = '#'.repeat(2 * i + 1)
+//         console.log(spaces + hashes + spaces)
+//     }
+
+// }
+
+
+// nonsense solution from Stephen
+// function pyramid(n) {
+//     // find a relation between rows and columns numbers --> (2 * n - 1) it is
+//     const midpoint = Math.floor((2 * n - 1) / 2)
+
+//     for (let row = 0; row < n; row++) {
+//         let level = ''
+
+//         for (let column = 0; column < 2 * n - 1; column++) {
+//             if (midpoint - row <= column && midpoint + row >= column) {
+//                 level += '#'
+//             } else {
+//                 level += ' '
+//             }
+//         }
+
+//         console.log(level)
+//     }
+
+// }
